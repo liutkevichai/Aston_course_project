@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Book {
     private String author;
     private String title;
@@ -58,6 +60,32 @@ public class Book {
 
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, title, pageCount);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Book other = (Book) obj;
+        return pageCount == other.pageCount
+                && Objects.equals(author, other.author)
+                && Objects.equals(title, other.title);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author=" + author +
+                ", title=" + title +
+                ", pageCount=" + pageCount +
+                "}";
     }
 }
 

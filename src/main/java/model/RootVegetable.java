@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class RootVegetable {
     private String type;
     private double weight;
@@ -59,5 +61,31 @@ public class RootVegetable {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, weight, color);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        RootVegetable other = (RootVegetable) obj;
+        return Double.compare(other.weight, weight) == 0
+                && Objects.equals(type, other.type) && Objects.equals(color, other.color);
+    }
+
+    @Override
+    public String toString() {
+        return "RootVegetable{" +
+                "type=" + type + " " +
+                ", weight=" + weight +
+                ", color=" + color +
+                "}";
+    }
+
 }
 

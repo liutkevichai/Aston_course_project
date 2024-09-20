@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Car {
     private String model;
     private int year;
@@ -58,6 +60,30 @@ public class Car {
 
     public void setPower(int power) {
         this.power = power;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, year, power);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Car other = (Car) obj;
+        return year == other.year && power == other.power && Objects.equals(model, other.model);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model=" + model +
+                ", year=" + year +
+                ", power=" + power +
+                "}";
     }
 }
 
