@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private String author;
     private String title;
     private int pageCount;
@@ -60,6 +60,15 @@ public class Book {
 
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
+    }
+
+    @Override
+    public int compareTo(Book b) {
+        int authorComparison = this.author.compareTo(b.author);
+        if (authorComparison != 0) {
+            return authorComparison;
+        }
+        return this.title.compareTo(b.title);
     }
 
     @Override
