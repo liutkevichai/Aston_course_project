@@ -22,4 +22,5 @@ public class BinarySearch<T extends Comparable<T>> {
         }
         return -1;
     }
+
 }
