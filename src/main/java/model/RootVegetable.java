@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class RootVegetable {
     private String type;
-    private double weight;
+    private int weight;
     private String color;
 
     private RootVegetable(Builder builder) {
@@ -15,7 +15,7 @@ public class RootVegetable {
 
     public static class Builder {
         private String type;
-        private double weight;
+        private int weight;
         private String color;
 
         public Builder type(String type) {
@@ -23,7 +23,7 @@ public class RootVegetable {
             return this;
         }
 
-        public Builder weight(double weight) {
+        public Builder weight(int weight) {
             this.weight = weight;
             return this;
         }
@@ -46,11 +46,11 @@ public class RootVegetable {
         this.type = type;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
