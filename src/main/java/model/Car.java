@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>, HasNumField<Car> {
     private String model;
     private int year;
     private int power;
@@ -63,6 +63,24 @@ public class Car {
     }
 
     @Override
+    public int compareTo(Car o) {
+        int modelComparison = this.model.compareTo(o.model);
+        if (modelComparison != 0) {
+            return modelComparison;
+        }
+
+        int yearComparison = Integer.compare(this.year, o.year);
+        if (yearComparison != 0) {
+            return yearComparison;
+        }
+        return Integer.compare(this.power, o.power);
+    }
+
+    public int getNumField() {
+        return this.getPower();
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(model, year, power);
     }
@@ -79,11 +97,10 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model=" + model +
-                ", year=" + year +
-                ", power=" + power +
-                "}";
+        return "Автомобиль{"
+                + "модель: " + model + ", "
+                + "год: " + year + ", "
+                + "мощность: " + power + "}";
     }
 
 }

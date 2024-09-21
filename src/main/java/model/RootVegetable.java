@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class RootVegetable {
+public class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable> {
     private String type;
     private int weight;
     private String color;
@@ -63,6 +63,25 @@ public class RootVegetable {
     }
 
     @Override
+    public int compareTo(RootVegetable o) {
+        int typeComparison = this.type.compareTo(o.type);
+        if (typeComparison != 0) {
+            return typeComparison;
+        }
+
+        int weightComparison = Integer.compare(this.weight, o.weight);
+        if (weightComparison != 0) {
+            return weightComparison;
+        }
+
+        return this.color.compareTo(o.color);
+    }
+
+    public int getNumField() {
+        return this.getWeight();
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(type, weight, color);
     }
@@ -80,11 +99,10 @@ public class RootVegetable {
 
     @Override
     public String toString() {
-        return "RootVegetable{" +
-                "type=" + type + " " +
-                ", weight=" + weight +
-                ", color=" + color +
-                "}";
+        return "Корнеплод{"
+                + "тип: " + type + ", "
+                + "вес: " + weight + ", "
+                + "цвет: " + color + "}";
     }
 
 

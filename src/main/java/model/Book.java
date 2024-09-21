@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book>, HasNumField<Book> {
     private String author;
     private String title;
     private int pageCount;
@@ -63,6 +63,25 @@ public class Book {
     }
 
     @Override
+    public int compareTo(Book o) {
+        int authorComparison = this.author.compareTo(o.author);
+        if (authorComparison != 0) {
+            return authorComparison;
+        }
+
+        int titleComparison = this.title.compareTo(o.title);
+        if (titleComparison != 0) {
+            return titleComparison;
+        }
+
+        return Integer.compare(this.pageCount, o.pageCount);
+    }
+
+    public int getNumField() {
+        return this.getPageCount();
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(author, title, pageCount);
     }
@@ -81,11 +100,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "author=" + author +
-                ", title=" + title +
-                ", pageCount=" + pageCount +
-                "}";
+        return "Книга{"
+                + "автор: " + author + ", "
+                + "название: " + title + ", "
+                + "кол-во страниц: " + pageCount + "}";
     }
 
 }
