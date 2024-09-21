@@ -1,5 +1,4 @@
 package model;
-//Эксперимент с гитом
 
 import java.util.Objects;
 
