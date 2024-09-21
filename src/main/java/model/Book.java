@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Book implements Comparable<Book> {
+public class Book implements Comparable<Book>, HasNumField<Book> {
     private String author;
     private String title;
     private int pageCount;
@@ -63,12 +63,22 @@ public class Book implements Comparable<Book> {
     }
 
     @Override
-    public int compareTo(Book b) {
-        int authorComparison = this.author.compareTo(b.author);
+    public int compareTo(Book o) {
+        int authorComparison = this.author.compareTo(o.author);
         if (authorComparison != 0) {
             return authorComparison;
         }
-        return this.title.compareTo(b.title);
+
+        int titleComparison = this.title.compareTo(o.title);
+        if (titleComparison != 0) {
+            return titleComparison;
+        }
+
+        return Integer.compare(this.pageCount, o.pageCount);
+    }
+
+    public int getNumField() {
+        return this.getPageCount();
     }
 
     @Override
@@ -90,11 +100,7 @@ public class Book implements Comparable<Book> {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "author=" + author +
-                ", title=" + title +
-                ", pageCount=" + pageCount +
-                "}";
+        return "Книга:" + author + ", " + title + ", " + pageCount;
     }
 
 }

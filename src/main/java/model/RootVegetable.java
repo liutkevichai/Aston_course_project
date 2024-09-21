@@ -2,9 +2,9 @@ package model;
 
 import java.util.Objects;
 
-public class RootVegetable implements Comparable<RootVegetable> {
+public class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable> {
     private String type;
-    private double weight;
+    private int weight;
     private String color;
 
     private RootVegetable(Builder builder) {
@@ -15,7 +15,7 @@ public class RootVegetable implements Comparable<RootVegetable> {
 
     public static class Builder {
         private String type;
-        private double weight;
+        private int weight;
         private String color;
 
         public Builder type(String type) {
@@ -23,7 +23,7 @@ public class RootVegetable implements Comparable<RootVegetable> {
             return this;
         }
 
-        public Builder weight(double weight) {
+        public Builder weight(int weight) {
             this.weight = weight;
             return this;
         }
@@ -46,11 +46,11 @@ public class RootVegetable implements Comparable<RootVegetable> {
         this.type = type;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -63,12 +63,22 @@ public class RootVegetable implements Comparable<RootVegetable> {
     }
 
     @Override
-    public int compareTo(RootVegetable rv) {
-        int typeComparison = this.type.compareTo(rv.type);
+    public int compareTo(RootVegetable o) {
+        int typeComparison = this.type.compareTo(o.type);
         if (typeComparison != 0) {
             return typeComparison;
         }
-        return Double.compare(this.weight, rv.weight);
+
+        int weightComparison = Integer.compare(this.weight, o.weight);
+        if (weightComparison != 0) {
+            return weightComparison;
+        }
+
+        return this.color.compareTo(o.color);
+    }
+
+    public int getNumField() {
+        return this.getWeight();
     }
 
     @Override
@@ -89,11 +99,7 @@ public class RootVegetable implements Comparable<RootVegetable> {
 
     @Override
     public String toString() {
-        return "RootVegetable{" +
-                "type=" + type + " " +
-                ", weight=" + weight +
-                ", color=" + color +
-                "}";
+        return "Корнеплод:" + type + ", " + weight + ", " + color;
     }
 
 
