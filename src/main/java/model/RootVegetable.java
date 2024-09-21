@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class RootVegetable {
+public class RootVegetable implements Comparable<RootVegetable> {
     private String type;
     private double weight;
     private String color;
@@ -11,6 +11,11 @@ public class RootVegetable {
         this.type = builder.type;
         this.weight = builder.weight;
         this.color = builder.color;
+    }
+
+    @Override
+    public int compareTo(RootVegetable o) {
+        return (int) (this.weight - o.weight);
     }
 
     public static class Builder {
