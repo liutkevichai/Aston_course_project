@@ -100,7 +100,10 @@ public class Book implements Comparable<Book>, HasNumField<Book> {
 
     @Override
     public String toString() {
-        return "Книга:" + author + ", " + title + ", " + pageCount;
+        return "Книга{"
+                + "автор: " + author + ", "
+                + "название: " + title + ", "
+                + "кол-во страниц: " + pageCount + "}";
     }
 
 }

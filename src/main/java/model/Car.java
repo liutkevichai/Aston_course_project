@@ -97,7 +97,10 @@ public class Car implements Comparable<Car>, HasNumField<Car> {
 
     @Override
     public String toString() {
-        return "Автомобиль: " + model + ", " + year + ", " + power;
+        return "Автомобиль{"
+                + "модель: " + model + ", "
+                + "год: " + year + ", "
+                + "мощность: " + power + "}";
     }
 
 }

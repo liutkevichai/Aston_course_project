@@ -99,7 +99,10 @@ public class RootVegetable implements Comparable<RootVegetable>, HasNumField<Roo
 
     @Override
     public String toString() {
-        return "Корнеплод:" + type + ", " + weight + ", " + color;
+        return "Корнеплод{"
+                + "тип: " + type + ", "
+                + "вес: " + weight + ", "
+                + "цвет: " + color + "}";
     }
 
 
