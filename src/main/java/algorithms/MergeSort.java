@@ -1,7 +1,6 @@
-package model;
+package algorithms;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class MergeSort <T> {
 
