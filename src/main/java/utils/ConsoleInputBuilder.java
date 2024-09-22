@@ -6,8 +6,7 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class ConsoleInputBuilder {
-    public static <T> T setupWithInput(Class<T> clazz) {
-        Scanner scanner = new Scanner(System.in);
+    public static <T> T setupWithInput(Class<T> clazz, Scanner scanner) {
         Object builderInstance;
 
         try {
@@ -29,6 +28,7 @@ public class ConsoleInputBuilder {
             }
 
             Method buildMethod = builderClass.getMethod("build");
+
             return (T) buildMethod.invoke(builderInstance);
 
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
@@ -43,7 +43,7 @@ public class ConsoleInputBuilder {
         if (fieldType == int.class || fieldType == Integer.class) {
             if (input.isBlank()) return 0;
             try {
-                return Integer.parseInt(input);
+                return (int) Math.round(Double.parseDouble(input));
             } catch (NumberFormatException e) { return 0; }
         }
         if (input.isBlank()) return "empty";
