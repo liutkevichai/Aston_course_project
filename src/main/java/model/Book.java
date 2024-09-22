@@ -2,12 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Book implements Comparable<Book> {
-    @Override
-    public int compareTo(Book o) {
-        return this.pageCount - o.pageCount;
-    }
-
+public class Book {
     private String author;
     private String title;
     private int pageCount;

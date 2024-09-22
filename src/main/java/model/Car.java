@@ -2,12 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car> {
-    @Override
-    public int compareTo(Car o) {
-        return this.year - o.year;
-    }
-
+public class Car {
     private String model;
     private int year;
     private int power;

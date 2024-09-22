@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class RootVegetable implements Comparable<RootVegetable> {
     private String type;
-    private double weight;
+    private int weight;
     private String color;
 
     private RootVegetable(Builder builder) {
@@ -20,7 +20,7 @@ public class RootVegetable implements Comparable<RootVegetable> {
 
     public static class Builder {
         private String type;
-        private double weight;
+        private int weight;
         private String color;
 
         public Builder type(String type) {
@@ -28,7 +28,7 @@ public class RootVegetable implements Comparable<RootVegetable> {
             return this;
         }
 
-        public Builder weight(double weight) {
+        public Builder weight(int weight) {
             this.weight = weight;
             return this;
         }
@@ -51,11 +51,11 @@ public class RootVegetable implements Comparable<RootVegetable> {
         this.type = type;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -65,6 +65,15 @@ public class RootVegetable implements Comparable<RootVegetable> {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public int compareTo(RootVegetable rv) {
+        int typeComparison = this.type.compareTo(rv.type);
+        if (typeComparison != 0) {
+            return typeComparison;
+        }
+        return Double.compare(this.weight, rv.weight);
     }
 
     @Override
