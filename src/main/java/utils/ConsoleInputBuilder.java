@@ -42,7 +42,9 @@ public class ConsoleInputBuilder {
     private static Object parseInput(String input, Class<?> fieldType) {
         if (fieldType == int.class || fieldType == Integer.class) {
             if (input.isBlank()) return 0;
-            return Integer.parseInt(input);
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) { return 0; }
         }
         if (input.isBlank()) return "empty";
         return input;
