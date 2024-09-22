@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class RootVegetable implements Comparable<RootVegetable> {
+public class RootVegetable{
     private String type;
     private int weight;
     private String color;
@@ -11,11 +11,6 @@ public class RootVegetable implements Comparable<RootVegetable> {
         this.type = builder.type;
         this.weight = builder.weight;
         this.color = builder.color;
-    }
-
-    @Override
-    public int compareTo(RootVegetable o) {
-        return (int) (this.weight - o.weight);
     }
 
     public static class Builder {
@@ -65,15 +60,6 @@ public class RootVegetable implements Comparable<RootVegetable> {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    @Override
-    public int compareTo(RootVegetable rv) {
-        int typeComparison = this.type.compareTo(rv.type);
-        if (typeComparison != 0) {
-            return typeComparison;
-        }
-        return Double.compare(this.weight, rv.weight);
     }
 
     @Override
