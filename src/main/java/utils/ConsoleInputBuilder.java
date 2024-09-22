@@ -28,7 +28,6 @@ public class ConsoleInputBuilder {
             }
 
             Method buildMethod = builderClass.getMethod("build");
-
             return (T) buildMethod.invoke(builderInstance);
 
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
