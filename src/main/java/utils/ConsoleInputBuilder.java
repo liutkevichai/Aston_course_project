@@ -6,8 +6,7 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class ConsoleInputBuilder {
-    public static <T> T setupWithInput(Class<T> clazz) {
-        Scanner scanner = new Scanner(System.in);
+    public static <T> T setupWithInput(Class<T> clazz, Scanner scanner) {
         Object builderInstance;
 
         try {
