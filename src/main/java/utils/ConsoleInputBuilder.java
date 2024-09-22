@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ConsoleInputBuilder {
     public static <T> T setupWithInput(Class<T> clazz) {
         Scanner scanner = new Scanner(System.in);
-        Object builderInstance = null;
+        Object builderInstance;
 
         try {
             Class<?> builderClass = Class.forName(clazz.getName() + "$Builder");
