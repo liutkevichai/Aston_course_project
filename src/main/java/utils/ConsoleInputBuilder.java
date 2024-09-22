@@ -1,0 +1,50 @@
+package utils;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Scanner;
+
+public class ConsoleInputBuilder {
+    public static <T> T setupWithInput(Class<T> clazz) {
+        Scanner scanner = new Scanner(System.in);
+        Object builderInstance = null;
+
+        try {
+            Class<?> builderClass = Class.forName(clazz.getName() + "$Builder");
+            builderInstance = builderClass.getDeclaredConstructor().newInstance();
+
+            Field[] fields = builderClass.getDeclaredFields();
+            for (Field field : fields) {
+                String fieldName = field.getName();
+                Class<?> fieldType = field.getType();
+
+                System.out.println("Enter field value: " + fieldName + " (" + fieldType.getSimpleName() + "): ");
+                String inputValue = scanner.nextLine();
+
+                Object parsedValue = parseInput(inputValue, fieldType);
+
+                Method builderMethod = builderClass.getMethod(fieldName, fieldType);
+                builderMethod.invoke(builderInstance, parsedValue);
+            }
+
+            Method buildMethod = builderClass.getMethod("build");
+            return (T) buildMethod.invoke(builderInstance);
+
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
+                 NoSuchMethodException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private static Object parseInput(String input, Class<?> fieldType) {
+        if (fieldType == int.class || fieldType == Integer.class) {
+            if (input.isBlank()) return 0;
+            return Integer.parseInt(input);
+        }
+        if (input.isBlank()) return "empty";
+        return input;
+    }
+}

@@ -8,7 +8,7 @@ public class Car implements Comparable<Car>, HasNumField<Car> {
     private int power;
 
     private Car(Builder builder) {
-        this.model = builder.model;
+        this.model = builder.model != null ? builder.model : "empty";
         this.year = builder.year;
         this.power = builder.power;
     }
@@ -97,10 +97,10 @@ public class Car implements Comparable<Car>, HasNumField<Car> {
 
     @Override
     public String toString() {
-        return "Автомобиль{"
-                + "модель: " + model + ", "
-                + "год: " + year + ", "
-                + "мощность: " + power + "}";
+        return "Car{"
+                + "model:" + model + ", "
+                + "year:" + year + ", "
+                + "power:" + power + "}";
     }
 
 }

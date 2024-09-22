@@ -8,8 +8,8 @@ public class Book implements Comparable<Book>, HasNumField<Book> {
     private int pageCount;
 
     private Book(Builder builder) {
-        this.author = builder.author;
-        this.title = builder.title;
+        this.author = builder.author != null ? builder.author : "empty";
+        this.title = builder.title != null ? builder.title : "empty";
         this.pageCount = builder.pageCount;
     }
 
@@ -100,10 +100,10 @@ public class Book implements Comparable<Book>, HasNumField<Book> {
 
     @Override
     public String toString() {
-        return "Книга{"
-                + "автор: " + author + ", "
-                + "название: " + title + ", "
-                + "кол-во страниц: " + pageCount + "}";
+        return "Book{"
+                + "author:" + author + ", "
+                + "title:" + title + ", "
+                + "pageCount:" + pageCount + "}";
     }
 
 }
