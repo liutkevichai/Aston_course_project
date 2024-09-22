@@ -8,9 +8,9 @@ public class RootVegetable implements Comparable<RootVegetable>, HasNumField<Roo
     private String color;
 
     private RootVegetable(Builder builder) {
-        this.type = builder.type;
+        this.type = builder.type != null ? builder.type : "empty";
         this.weight = builder.weight;
-        this.color = builder.color;
+        this.color = builder.color != null ? builder.color : "empty";
     }
 
     public static class Builder {
@@ -99,10 +99,10 @@ public class RootVegetable implements Comparable<RootVegetable>, HasNumField<Roo
 
     @Override
     public String toString() {
-        return "Корнеплод{"
-                + "тип: " + type + ", "
-                + "вес: " + weight + ", "
-                + "цвет: " + color + "}";
+        return "RootVegetable{"
+                + "type:" + type + ", "
+                + "weight:" + weight + ", "
+                + "color:" + color + "}";
     }
 
 
