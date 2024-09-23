@@ -2,7 +2,7 @@ package strategy.impl;
 
 import strategy.FillingList;
 
-import utils.ConsoleInputBuilder;
+import strategy.utils.ConsoleInputBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
