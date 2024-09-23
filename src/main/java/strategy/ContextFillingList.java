@@ -2,6 +2,10 @@ package strategy;
 
 import java.util.List;
 
+/***
+ * Class realise pattern 'strategy'.
+ * Class help execute method for all classes who implement interface 'FillingList'
+ */
 public class ContextFillingList {
     private FillingList fillingList;
     public <T> List execute(T typeClass, int cout) {
