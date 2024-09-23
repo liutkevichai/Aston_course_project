@@ -28,7 +28,8 @@ public class FillingListFromConsole implements FillingList {
             list = new ArrayList();
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < count; i++) {
-                list.add(ConsoleInputBuilder.setupWithInput(typeClass.getClass(), scanner));
+                System.out.println("New element(" + (i+1) + ")");
+                list.add(ConsoleInputBuilder.setupWithInput((Class) typeClass, scanner));
             }
         }
         return list;
