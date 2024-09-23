@@ -100,10 +100,10 @@ public class Book implements Comparable<Book>, HasNumField<Book> {
 
     @Override
     public String toString() {
-        return "Book{"
-                + "author:" + author + ", "
-                + "title:" + title + ", "
-                + "pageCount:" + pageCount + "}";
+        return new StringBuilder("Book{")
+                .append("author: ").append(author).append(", ")
+                .append("title: ").append(title).append(", ")
+                .append("pageCount: ").append(pageCount).append("}").toString();
     }
 
 }
