@@ -4,6 +4,7 @@ import java.util.Set;
 public class UserInput {
     Integer classChoice;
     Integer fillingChoice;
+    Integer amountChoice;
     Integer sortingChoice;
     Integer searchChoice;
 
@@ -18,12 +19,13 @@ public class UserInput {
         Set<Integer> options = Set.of(1,2,3,0);
 
         if (classChoice == null) {
+            System.out.println();
             classChoice = getUserInput(message, scanner, options);
         }
         return classChoice;
     }
 
-    public int getFillingTypeChoice(Scanner scanner) {
+    public int getFillingChoice(Scanner scanner) {
         String message = """
                         Choose how to fill a list (enter a number):
                         1 - Fill manually
@@ -36,6 +38,31 @@ public class UserInput {
             fillingChoice = getUserInput(message, scanner,options);
         }
         return fillingChoice;
+    }
+
+    public int getAmountChoice(Scanner scanner) {
+        if (amountChoice == null) {
+            while (true) {
+                System.out.println("""
+                        Choose an amount of elements (enter a number):
+                        Or enter 0 to exit""");
+
+                if (!scanner.hasNextInt()) {
+                    System.out.println("This value is not a valid number");
+                    continue;
+                }
+
+                amountChoice = scanner.nextInt();
+                scanner.nextLine();
+
+                if (amountChoice >= 0) break;
+                else {
+                    System.out.println("You can't choose a negative amount: " + amountChoice);
+                    return -1;
+                }
+            }
+        }
+        return amountChoice;
     }
 
     public int getSortingChoice(Scanner scanner) {
@@ -72,7 +99,7 @@ public class UserInput {
             System.out.println(message);
 
             if (!scanner.hasNextInt()) {
-                System.out.println("This value is not a number");
+                System.out.println("This value is not a valid number");
                 continue;
             }
 
@@ -81,7 +108,7 @@ public class UserInput {
 
             if (options.contains(choice)) break;
             else {
-                System.out.println("There is no such option: " + classChoice);
+                System.out.println("There is no such option: " + choice);
                 return -1;
             }
         }

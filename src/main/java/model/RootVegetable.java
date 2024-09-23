@@ -82,6 +82,11 @@ public class RootVegetable implements Comparable<RootVegetable>, HasNumField<Roo
     }
 
     @Override
+    public String getNumFieldName() {
+        return "weight";
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(type, weight, color);
     }

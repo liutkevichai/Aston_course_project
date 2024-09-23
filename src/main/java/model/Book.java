@@ -82,6 +82,11 @@ public class Book implements Comparable<Book>, HasNumField<Book> {
     }
 
     @Override
+    public String getNumFieldName() {
+        return "page count";
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(author, title, pageCount);
     }

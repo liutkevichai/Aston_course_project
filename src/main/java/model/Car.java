@@ -81,6 +81,11 @@ public class Car implements Comparable<Car>, HasNumField<Car> {
     }
 
     @Override
+    public String getNumFieldName() {
+        return "power";
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(model, year, power);
     }
