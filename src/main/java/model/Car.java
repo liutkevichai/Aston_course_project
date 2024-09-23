@@ -97,10 +97,10 @@ public class Car implements Comparable<Car>, HasNumField<Car> {
 
     @Override
     public String toString() {
-        return "Car{"
-                + "model:" + model + ", "
-                + "year:" + year + ", "
-                + "power:" + power + "}";
+        return new StringBuilder("Car{")
+                .append("model: ").append(model).append(", ")
+                .append("year: ").append(year).append(", ")
+                .append("power: ").append(power).append("}").toString();
     }
 
 }
