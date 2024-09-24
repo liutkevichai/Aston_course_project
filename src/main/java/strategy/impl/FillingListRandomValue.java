@@ -22,13 +22,18 @@ public class FillingListRandomValue implements FillingList {
      */
     @Override
     public <T> List fillList(T typeClass, int count) {
+        List list = null;
         FillingObjectList fillingObjectList = new FillingObjectList();
 
-        return switch (typeClass) {
-            case Car car -> fillingObjectList.fillCarList(count);
-            case Book book -> fillingObjectList.fillBookList(count);
-            case RootVegetable rootVegetable -> fillingObjectList.fillRootVegetableList(count);
-            case null, default -> null;
-        };
+        if (typeClass.equals(Car.class)) {
+            list = fillingObjectList.fillCarList(count);
+        } else if (typeClass.equals(Book.class)) {
+            list = fillingObjectList.fillBookList(count);
+        }
+        else if (typeClass.equals(RootVegetable.class)) {
+            list = fillingObjectList.fillRootVegetableList(count);
+        }
+
+        return list;
     }
 }

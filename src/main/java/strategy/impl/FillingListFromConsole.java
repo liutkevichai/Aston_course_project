@@ -12,6 +12,8 @@ import java.util.Scanner;
  * Class response for create and fill object list from console
  */
 public class FillingListFromConsole implements FillingList {
+    private static final Scanner scanner = new Scanner(System.in);
+
     /***
      * Method create and fill object list with type T certain size
      * This method implements external class for executes to fill
@@ -26,9 +28,8 @@ public class FillingListFromConsole implements FillingList {
         List list = null;
         if (count > 0) {
             list = new ArrayList();
-            Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < count; i++) {
-                list.add(ConsoleInputBuilder.setupWithInput(typeClass.getClass(), scanner));
+                list.add(ConsoleInputBuilder.setupWithInput((Class) typeClass, scanner));
             }
         }
         return list;
