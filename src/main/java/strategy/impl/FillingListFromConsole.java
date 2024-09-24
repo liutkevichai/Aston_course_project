@@ -29,7 +29,7 @@ public class FillingListFromConsole implements FillingList {
         if (count > 0) {
             list = new ArrayList();
             for (int i = 0; i < count; i++) {
-                list.add(ConsoleInputBuilder.setupWithInput((Class) typeClass, scanner));
+                list.add(ConsoleInputBuilder.setupWithInput((Class) typeClass));
             }
         }
         return list;
