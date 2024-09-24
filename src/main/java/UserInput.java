@@ -58,7 +58,6 @@ public class UserInput {
                 if (amountChoice >= 0) break;
                 else {
                     System.out.println("You can't choose a negative amount: " + amountChoice);
-                    return -1;
                 }
             }
         }
@@ -109,7 +108,6 @@ public class UserInput {
             if (options.contains(choice)) break;
             else {
                 System.out.println("There is no such option: " + choice);
-                return -1;
             }
         }
         return choice;
