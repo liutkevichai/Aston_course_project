@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class ContextFillingList {
     private FillingList fillingList;
-    public <T> List execute(T typeClass, int cout) {
-         return fillingList.fillList(typeClass, cout);
+    public <T> List execute(T typeClass, int count) {
+         return fillingList.fillList(typeClass, count);
     }
     public void setFillingList(FillingList fillingList) {
         this.fillingList = fillingList;
