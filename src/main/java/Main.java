@@ -27,19 +27,16 @@ public class Main {
                     break;
                 case 1:
                     res = processInput(Car.class, input, scanner);
-                    if (res == 1) continue;
-                    else if (res == -1) continue;
-                    else break;
+                    if (res == 0) break;
+                    else continue;
                 case 2:
                     res = processInput(Book.class, input, scanner);
-                    if (res == 1) continue;
-                    else if (res == -1) continue;
-                    else break;
+                    if (res == 0) break;
+                    else continue;
                 case 3:
                     res = processInput(RootVegetable.class, input, scanner);
-                    if (res == 1) continue;
-                    else if (res == -1) continue;
-                    else break;
+                    if (res == 0) break;
+                    else continue;
                 default:
                     continue;
             }
