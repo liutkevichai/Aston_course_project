@@ -11,25 +11,6 @@ import strategy.utils.ConsoleInputBuilder;
 import java.util.*;
 
 public class Main {
-
-    public static List<Car> carList = new ArrayList<>(Arrays.asList(
-            new Car.Builder().model("Рено").power(401).build(),
-            new Car.Builder().model("Ауди").power(600).build(),
-            new Car.Builder().model("Ниссан").power(300).build())
-    );
-
-    public static List<Book> bookList = new ArrayList<>(Arrays.asList(
-            new Book.Builder().author("Кинг С.").pageCount(460).build(),
-            new Book.Builder().author("Лавкрафт Г.").pageCount(503).build(),
-            new Book.Builder().author("Блох Р.").pageCount(208).build())
-    );
-
-    public static List<RootVegetable> rootVegetableList = new ArrayList<>(Arrays.asList(
-            new RootVegetable.Builder().type("Репа").weight(3).build(),
-            new RootVegetable.Builder().type("Морковь").weight(100).build(),
-            new RootVegetable.Builder().type("Репа").weight(10).build())
-    );
-
     public static Map<Integer, FillingList> fillingStrategies = Map.of(
             1, new FillingListFromConsole(),
             2, new FillingListRandomValue(),// ЗАМЕНИТЬ
