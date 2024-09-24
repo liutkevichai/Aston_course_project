@@ -1,16 +1,16 @@
-
 package algorithms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Sorting {
-    private static <T extends Comparable<T>> void merge(List<T> l1, List<T> l2, List<T> l) {
+    private static <T extends Comparable<T>> void merge(List<T> l1, List<T> l2, List<T> l, Comparator<T> comparator) {
         int i = 0;
         int j = 0;
         int k = 0;
         while (i < l1.size() && j < l2.size()) {
-            if (l1.get(i).compareTo(l2.get(i)) < 0) {
+            if (comparator.compare(l1.get(i), l2.get(j)) < 0) {
                 l.set(k++, l1.get(i++));
             } else {
                 l.set(k++, l2.get(j++));
@@ -24,7 +24,7 @@ public class Sorting {
         }
     }
 
-    public static <T extends Comparable<T>> void mergeSort(List<T> l) {
+    public static <T extends Comparable<T>> void mergeSort(List<T> l, Comparator<T> comparator) {
         int size = l.size();
         if (size < 2) {
             return;
@@ -33,9 +33,9 @@ public class Sorting {
         List<T> l1 = new ArrayList<>(l.subList(0, half));
         List<T> l2 = new ArrayList<>(l.subList(half, size));
 
-        mergeSort(l1);
-        mergeSort(l2);
+        mergeSort(l1, comparator);
+        mergeSort(l2, comparator);
 
-        merge(l1, l2, l);
+        merge(l1, l2, l, comparator);
     }
 }
