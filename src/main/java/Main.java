@@ -56,6 +56,8 @@ public class Main {
         cfl.setFillingList(fillingStrategies.get(fillingChoice));
         List list = cfl.execute(typeClass, amount);
 
+        System.out.println("Your list: " + list + "\n");
+
         int sortingChoice = input.getSortingChoice(scanner);
         if (sortingChoice == 0) return 0;
 
