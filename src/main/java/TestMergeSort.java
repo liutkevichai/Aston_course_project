@@ -1,9 +1,8 @@
-import model.Car;
 import algorithms.Sorting;
+import model.Car;
 import model.CarComparator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class TestMergeSort {
