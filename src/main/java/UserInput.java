@@ -2,13 +2,15 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class UserInput {
-    Integer classChoice;
-    Integer fillingChoice;
-    Integer amountChoice;
-    Integer sortingChoice;
-    Integer searchChoice;
+    private Integer classChoice;
+    private Integer fillingChoice;
+    private Integer amountChoice;
+    private Integer sortingChoice;
+    private Integer searchChoice;
 
-    public int getClassChoice(Scanner scanner) {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public int getClassChoice() {
         String message = """
                         Choose an object type (enter a number):
                         1 - Car
@@ -20,12 +22,12 @@ public class UserInput {
 
         if (classChoice == null) {
             System.out.println();
-            classChoice = getUserInput(message, scanner, options);
+            classChoice = getUserInput(message, options);
         }
         return classChoice;
     }
 
-    public int getFillingChoice(Scanner scanner) {
+    public int getFillingChoice() {
         String message = """
                         Choose how to fill a list (enter a number):
                         1 - Fill manually
@@ -35,12 +37,12 @@ public class UserInput {
 
         Set<Integer> options = Set.of(1,2,3,0);
         if (fillingChoice == null) {
-            fillingChoice = getUserInput(message, scanner,options);
+            fillingChoice = getUserInput(message, options);
         }
         return fillingChoice;
     }
 
-    public int getAmountChoice(Scanner scanner) {
+    public int getAmountChoice() {
         if (amountChoice == null) {
             while (true) {
                 System.out.println("""
@@ -64,7 +66,7 @@ public class UserInput {
         return amountChoice;
     }
 
-    public int getSortingChoice(Scanner scanner) {
+    public int getSortingChoice() {
         String message = """
                         Choose how to sort the list (enter a number):
                         1 - Default sorting
@@ -73,12 +75,12 @@ public class UserInput {
 
         Set<Integer> options = Set.of(1,2,0);
         if (sortingChoice == null) {
-           sortingChoice = getUserInput(message, scanner,options);
+           sortingChoice = getUserInput(message, options);
         }
         return sortingChoice;
     }
 
-    public int getSearchChoice(Scanner scanner) {
+    public int getSearchChoice() {
         String message = """
                         Do you want to search for an element? (enter a number):
                         1 - Yes
@@ -87,12 +89,12 @@ public class UserInput {
 
         Set<Integer> options = Set.of(1,2,0);
         if (searchChoice == null) {
-            searchChoice = getUserInput(message, scanner, options);
+            searchChoice = getUserInput(message, options);
         }
         return searchChoice;
     }
 
-    private int getUserInput(String message, Scanner scanner, Set<Integer> options) {
+    private int getUserInput(String message, Set<Integer> options) {
         int choice;
         while (true) {
             System.out.println(message);

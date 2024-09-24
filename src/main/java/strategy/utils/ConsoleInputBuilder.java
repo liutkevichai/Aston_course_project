@@ -6,7 +6,9 @@ import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class ConsoleInputBuilder {
-    public static <T> T setupWithInput(Class<T> clazz, Scanner scanner) {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static <T> T setupWithInput(Class<T> clazz) {
         Object builderInstance;
 
         try {
@@ -14,6 +16,7 @@ public class ConsoleInputBuilder {
             builderInstance = builderClass.getDeclaredConstructor().newInstance();
 
             Field[] fields = builderClass.getDeclaredFields();
+            System.out.println("New object " + clazz.getSimpleName() + ":");
             for (Field field : fields) {
                 String fieldName = field.getName();
                 Class<?> fieldType = field.getType();
