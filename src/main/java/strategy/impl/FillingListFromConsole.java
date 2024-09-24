@@ -12,8 +12,6 @@ import java.util.Scanner;
  * Class response for create and fill object list from console
  */
 public class FillingListFromConsole implements FillingList {
-    private static final Scanner scanner = new Scanner(System.in);
-
     /***
      * Method create and fill object list with type T certain size
      * This method implements external class for executes to fill
