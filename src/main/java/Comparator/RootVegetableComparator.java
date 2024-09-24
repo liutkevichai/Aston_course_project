@@ -1,4 +1,6 @@
-package model;
+package Comparator;
+
+import model.RootVegetable;
 
 import java.util.Comparator;
 

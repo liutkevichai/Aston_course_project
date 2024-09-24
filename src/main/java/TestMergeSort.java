@@ -1,6 +1,6 @@
 import algorithms.Sorting;
 import model.Car;
-import model.CarComparator;
+import Comparator.CarComparator;
 
 import java.util.ArrayList;
 import java.util.List;
