@@ -1,12 +1,11 @@
-package strategy.impl;
+package fillstrategy.impl;
 
-import strategy.FillingList;
+import fillstrategy.FillingList;
 
-import strategy.utils.ConsoleInputBuilder;
+import input.fields.BuilderInvoker;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /***
  * Class response for create and fill object list from console
@@ -24,10 +23,11 @@ public class FillingListFromConsole implements FillingList {
     @Override
     public <T> List fillList(T typeClass, int count) {
         List list = null;
+        BuilderInvoker invoker = new BuilderInvoker<>();
         if (count > 0) {
             list = new ArrayList();
             for (int i = 0; i < count; i++) {
-                list.add(ConsoleInputBuilder.setupWithInput((Class) typeClass));
+                list.add(invoker.setupWithInput((Class) typeClass));
             }
         }
         return list;

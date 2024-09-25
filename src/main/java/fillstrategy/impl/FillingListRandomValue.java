@@ -1,10 +1,10 @@
-package strategy.impl;
+package fillstrategy.impl;
 
-import model.Book;
-import model.Car;
-import model.RootVegetable;
-import strategy.utils.FillingObjectList;
-import strategy.FillingList;
+import models.Book;
+import models.Car;
+import models.RootVegetable;
+import fillstrategy.utils.FillingObjectList;
+import fillstrategy.FillingList;
 
 import java.util.List;
 /***

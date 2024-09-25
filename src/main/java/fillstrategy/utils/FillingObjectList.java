@@ -1,8 +1,8 @@
-package strategy.utils;
+package fillstrategy.utils;
 
-import model.Book;
-import model.Car;
-import model.RootVegetable;
+import models.Book;
+import models.Car;
+import models.RootVegetable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
