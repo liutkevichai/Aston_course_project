@@ -176,5 +176,4 @@ public final class RootVegetable implements Comparable<RootVegetable>, HasNumFie
                 .append("weight: ").append(weight).append(", ")
                 .append("color: ").append(color).append("}").toString();
     }
-
 }

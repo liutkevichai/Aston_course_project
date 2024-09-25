@@ -14,7 +14,7 @@ import java.util.Map;
 /***
  * Class realise serialization random object from folder 'model' in file
  */
-public class FillingFileRandomObject {
+public class SerializationObjectsInFile {
     /**
      * Path to source file
      */
@@ -38,7 +38,7 @@ public class FillingFileRandomObject {
      * It chooses random object from map and uses
      * external method for fill object random data.
      */
-    public void fillFile() {
+    public void serializeObjectsInFile() {
         int random;
         FillingList fillingList = new FillingListRandomValue();
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME, false))) {

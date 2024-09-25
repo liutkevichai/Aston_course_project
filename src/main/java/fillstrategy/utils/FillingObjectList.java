@@ -93,7 +93,7 @@ public class FillingObjectList {
      * Create and fill book list
      * If param method less or equal zero then method return empty method.
      * Also method have logic for situation when param 'count' may more than
-     * size 'BOOK_LIBRARY'.
+     * size 'BOOK_LIBRARY'. In this case book list will fill from the beginning 'BOOK_LIBRARY'.
      * @param count number element that will consist of book list
      * @return book list
      */

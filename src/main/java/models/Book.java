@@ -175,5 +175,4 @@ public final class Book implements Comparable<Book>, HasNumField<Book>, Serializ
                 .append("title: ").append(title).append(", ")
                 .append("pageCount: ").append(pageCount).append("}").toString();
     }
-
 }

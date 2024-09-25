@@ -173,5 +173,4 @@ public final class Car implements Comparable<Car>, HasNumField<Car>, Serializabl
                 .append("year: ").append(year).append(", ")
                 .append("power: ").append(power).append("}").toString();
     }
-
 }

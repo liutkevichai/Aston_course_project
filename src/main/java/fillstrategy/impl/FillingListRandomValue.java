@@ -7,6 +7,7 @@ import fillstrategy.utils.FillingObjectList;
 import fillstrategy.FillingList;
 
 import java.util.List;
+
 /***
  * Class creates and fill object list via random and prepared data
  */
@@ -29,8 +30,7 @@ public class FillingListRandomValue implements FillingList {
             list = fillingObjectList.fillCarList(count);
         } else if (typeClass.equals(Book.class)) {
             list = fillingObjectList.fillBookList(count);
-        }
-        else if (typeClass.equals(RootVegetable.class)) {
+        } else if (typeClass.equals(RootVegetable.class)) {
             list = fillingObjectList.fillRootVegetableList(count);
         }
 
