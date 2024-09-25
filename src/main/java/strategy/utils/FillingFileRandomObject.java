@@ -1,10 +1,10 @@
-package strategy.utils;
+package fillstrategy.utils;
 
-import model.Book;
-import model.Car;
-import model.RootVegetable;
-import strategy.FillingList;
-import strategy.impl.FillingListRandomValue;
+import models.Book;
+import models.Car;
+import models.RootVegetable;
+import fillstrategy.FillingList;
+import fillstrategy.impl.FillingListRandomValue;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

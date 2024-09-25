@@ -1,4 +1,4 @@
-package model;
+package models;
 
 /**
  * Interface represents an entity that has a numeric field. This interface can be implemented
