@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Car implements Comparable<Car>, HasNumField<Car> {
+public class Car implements Comparable<Car>, HasNumField<Car>, Serializable {
     private String model;
     private int year;
     private int power;

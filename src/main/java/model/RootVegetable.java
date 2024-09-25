@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable> {
+public class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable>, Serializable {
     private String type;
     private int weight;
     private String color;

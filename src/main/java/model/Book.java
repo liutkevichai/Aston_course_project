@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Book implements Comparable<Book>, HasNumField<Book> {
+public class Book implements Comparable<Book>, HasNumField<Book>, Serializable {
     private String author;
     private String title;
     private int pageCount;
