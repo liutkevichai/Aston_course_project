@@ -13,6 +13,7 @@ import java.util.List;
  * Class response for create list and fill it serialization objects from file
  */
 public class FillingListFromFile implements FillingList {
+
     /***
      * Count objects that contain in File
      */
