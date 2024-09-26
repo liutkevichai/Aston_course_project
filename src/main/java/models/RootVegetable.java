@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * The class implements {@link Comparable} to allow comparisons between root vegetables and {@link HasNumField}
  * to expose a numeric field for sorting or other operations.
  */
-public final class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable> {
+public final class RootVegetable implements Comparable<RootVegetable>, HasNumField<RootVegetable>, Serializable {
     private final String type;
     private final int weight;
     private final String color;
@@ -175,5 +176,4 @@ public final class RootVegetable implements Comparable<RootVegetable>, HasNumFie
                 .append("weight: ").append(weight).append(", ")
                 .append("color: ").append(color).append("}").toString();
     }
-
 }

@@ -2,6 +2,8 @@ import algorithms.AltSorting;
 import algorithms.BinarySearch;
 import algorithms.Sorting;
 
+import fillstrategy.impl.FillingListFromFile;
+import fillstrategy.utils.SerializationObjectsInFile;
 import input.UserChoiceSource;
 import input.UserChoiceHandler;
 
@@ -32,10 +34,11 @@ public class Main {
      */
     public static final Map<Integer, FillingList> fillingStrategies = Map.of(
             1, new FillingListFromConsole(),
-            2, new FillingListRandomValue(),
+            2, new FillingListFromFile(),
             3, new FillingListRandomValue());
 
     public static void main(String[] args) {
+        new SerializationObjectsInFile().serializeObjectsInFile();
         while (true) {
             UserChoiceHandler input = new UserChoiceHandler(new UserChoiceSource());
             int classChoice = input.getClassChoice();

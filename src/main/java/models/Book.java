@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * The class implements {@link Comparable} to allow comparisons between books and {@link HasNumField} to expose
  * a numeric field for sorting or other operations.
  */
-public final class Book implements Comparable<Book>, HasNumField<Book> {
+public final class Book implements Comparable<Book>, HasNumField<Book>, Serializable {
     private final String author;
     private final String title;
     private final int pageCount;
@@ -174,5 +175,4 @@ public final class Book implements Comparable<Book>, HasNumField<Book> {
                 .append("title: ").append(title).append(", ")
                 .append("pageCount: ").append(pageCount).append("}").toString();
     }
-
 }

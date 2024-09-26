@@ -5,9 +5,7 @@ import models.Car;
 import models.RootVegetable;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.*;
 
 /***
  * Class for create objects list and fill their a random data
@@ -19,47 +17,43 @@ public class FillingObjectList {
     private final static int MIN_POWER = 20;
     private final static int CURRENT_YEAR = LocalDate.now().getYear();
     private final static int OLD_CAR_YEAR = 1980;
-    private final static List<String> CAR_MODEL_LIST = Stream.of(
+    private final static List<String> CAR_MODEL_LIST = List.of(
                     "Audi", "BMW", "Cadillac", "Chevrolet", "Citroen", "Dodge", "Ferrari", "Fiat",
                     "Ford", "Geely", "Honda", "Hummer", "Hyundai", "Infiniti", "Jeep", "Opel", "Nissan",
                     "Mitsubishi", "Mercedes-Benz", "Mazda", "Maserati", "Livan", "Lexus",
-                    "Land Rover", "Lamborghini", "Lada", "Peugeot", "Porsche", "RAM", "Renault")
-            .toList();
-    private final static List<List<String>> BOOK_LIBRARY = Stream.of(
-                    Stream.of("T L Swan", "My Rules (Kingston Lane Book 2)", "503").toList(),
-                    Stream.of("Elsie Silver", "Wild Eyes", "407").toList(),
-                    Stream.of("Meghan Quinn", "Bridesmaid Undercover", "498").toList(),
-                    Stream.of("Pippa Grant", "The Secret Hook-Up", "311").toList(),
-                    Stream.of("Pippa Grant", "The Last Eligible Billionaire", "352").toList(),
-                    Stream.of("Alina Jacobs", "Mr. Absolutely Not!: A Romantic Comedy", "541").toList(),
-                    Stream.of("Meghan Quinn", "Bridesmaid For Hire", "450").toList(),
-                    Stream.of("Meghan Quinn", "The Way I Hate Him", "524").toList(),
-                    Stream.of("Meagan Brandy", "Say You Swear", "550").toList(),
-                    Stream.of("Jennifer Hartmann", "Still Beating", "314").toList(),
-                    Stream.of("Barry Powell", "A land of slaves", "267").toList(),
-                    Stream.of("Dilara Aksoy", "Lost Form", "111").toList(),
-                    Stream.of("H. Barcau", "Echoes of the Lost", "184").toList(),
-                    Stream.of("Joe Egan", "Losing Lee", "259").toList(),
-                    Stream.of("Debra Coleman Jeter", "The Ticket: A Southern Coming of Age Novel", "213").toList(),
-                    Stream.of("R. F. Whong", "Blazing China", "278").toList(),
-                    Stream.of("R. F. Whong", "Detour to Agape", "199").toList(),
-                    Stream.of("R. F. Whong", "Prestige of Hearts", "205").toList(),
-                    Stream.of("Mary Davis", "The Quilting Circle Box Set", "1234").toList(),
-                    Stream.of("Joe Egan", "Run to the Rio", "302").toList())
-            .toList();
+                    "Land Rover", "Lamborghini", "Lada", "Peugeot", "Porsche", "RAM", "Renault");
+    private final static List<List<String>> BOOK_LIBRARY = List.of(
+                    List.of("T L Swan", "My Rules (Kingston Lane Book 2)", "503"),
+                    List.of("Elsie Silver", "Wild Eyes", "407"),
+                    List.of("Meghan Quinn", "Bridesmaid Undercover", "498"),
+                    List.of("Pippa Grant", "The Secret Hook-Up", "311"),
+                    List.of("Pippa Grant", "The Last Eligible Billionaire", "352"),
+                    List.of("Alina Jacobs", "Mr. Absolutely Not!: A Romantic Comedy", "541"),
+                    List.of("Meghan Quinn", "Bridesmaid For Hire", "450"),
+                    List.of("Meghan Quinn", "The Way I Hate Him", "524"),
+                    List.of("Meagan Brandy", "Say You Swear", "550"),
+                    List.of("Jennifer Hartmann", "Still Beating", "314"),
+                    List.of("Barry Powell", "A land of slaves", "267"),
+                    List.of("Dilara Aksoy", "Lost Form", "111"),
+                    List.of("H. Barcau", "Echoes of the Lost", "184"),
+                    List.of("Joe Egan", "Losing Lee", "259"),
+                    List.of("Debra Coleman Jeter", "The Ticket: A Southern Coming of Age Novel", "213"),
+                    List.of("R. F. Whong", "Blazing China", "278"),
+                    List.of("R. F. Whong", "Detour to Agape", "199"),
+                    List.of("R. F. Whong", "Prestige of Hearts", "205"),
+                    List.of("Mary Davis", "The Quilting Circle Box Set", "1234"),
+                    List.of("Joe Egan", "Run to the Rio", "302"));
     private final static int MIN_WEIGHT_ROOT_VEGETABLE = 10;
     private final static int MAX_WEIGHT_ROOT_VEGETABLE = 1000;
-    private final static List<String> COLOR_LIST = Stream.of(
-                    "Orange", "Purple", "Yellow", "White", "Gray", "Red", "Green")
-            .toList();
-    private final static List<String> TYPE_ROOT_VEGETABLE_LIST = Stream.of(
+    private final static List<String> COLOR_LIST = List.of(
+                    "Orange", "Purple", "Yellow", "White", "Gray", "Red", "Green");
+    private final static List<String> TYPE_ROOT_VEGETABLE_LIST = List.of(
                     "Carrots", "Radishes", "Onions", "Garlic",
                     "Parsnips", "Beets", "Turnips", "Rutabaga",
                     "Celeriac", "Salsify", "Turmeric", "Ginger",
                     "Jerusalem artichokes", "Jicama", "Bamboo shoots", "Peanuts",
                     "Horseradish", "Yuca", "Potatoes", "Sweet potatoes",
-                    "Yams", "Taro", "Lotus roots")
-            .toList();
+                    "Yams", "Taro", "Lotus roots");
 
     /***
      * Create and fill car list
@@ -70,7 +64,7 @@ public class FillingObjectList {
     public List fillCarList(int count) {
         List carList;
         if (count > 0) {
-            carList = new <Car>ArrayList(count);
+            carList = new ArrayList<Car>(count);
             int year, power, indexModel;
 
             for (int i = 0; i < count; i++) {
@@ -84,7 +78,7 @@ public class FillingObjectList {
                         build());
             }
         } else {
-            carList = new ArrayList(0);
+            carList = new ArrayList<Car>(0);
         }
         return carList;
     }
@@ -93,22 +87,22 @@ public class FillingObjectList {
      * Create and fill book list
      * If param method less or equal zero then method return empty method.
      * Also method have logic for situation when param 'count' may more than
-     * size 'BOOK_LIBRARY'.
+     * size 'BOOK_LIBRARY'. In this case book list will fill from the beginning 'BOOK_LIBRARY'.
      * @param count number element that will consist of book list
      * @return book list
      */
     public List fillBookList(int count) {
         List bookList;
         if (count > 0) {
-            bookList = new <Book>ArrayList();
+            bookList = new ArrayList<Book>();
             String author, title;
             int pageCount;
             int sizeBookLibrary = BOOK_LIBRARY.size();
-
             for (int i = 0; i < count; i++) {
-                author = BOOK_LIBRARY.get(i).get(0);
-                title = BOOK_LIBRARY.get(i).get(1);
-                pageCount = Integer.parseInt(BOOK_LIBRARY.get(i).get(2));
+                List<String> book = BOOK_LIBRARY.get(generateRandomInRangeNotIncludeEnd(0, sizeBookLibrary));
+                author = book.get(0);
+                title = book.get(1);
+                pageCount = Integer.parseInt(book.get(2));
                 bookList.add(new Book.Builder()
                         .author(author)
                         .title(title)
@@ -121,7 +115,7 @@ public class FillingObjectList {
                 }
             }
         } else {
-            bookList = new ArrayList(0);
+            bookList = new ArrayList<Book>(0);
         }
         return bookList;
     }
@@ -134,7 +128,7 @@ public class FillingObjectList {
     public List fillRootVegetableList(int count) {
         List RootVegetableList;
         if (count > 0) {
-            RootVegetableList = new <RootVegetable>ArrayList(count);
+            RootVegetableList = new ArrayList<RootVegetable>(count);
             int weight, indexColor, indexRootVegetable;
 
             for (int i = 0; i < count; i++) {
@@ -149,7 +143,7 @@ public class FillingObjectList {
                         .build());
             }
         } else {
-            RootVegetableList = new ArrayList(0);
+            RootVegetableList = new ArrayList<RootVegetable>(0);
         }
         return RootVegetableList;
     }
