@@ -6,7 +6,9 @@ import models.RootVegetable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 /***
@@ -97,34 +99,33 @@ public class FillingObjectList {
      * @param count number element that will consist of book list
      * @return book list
      */
-    public List fillBookList(int count) {
-        List bookList;
+    public List<Book> fillBookList(int count) {
+        List<Book> bookList;
+        Set<Book> bookSet;
         if (count > 0) {
-            bookList = new <Book>ArrayList();
+            bookSet = new HashSet<>();
             String author, title;
             int pageCount;
-            int sizeBookLibrary = BOOK_LIBRARY.size();
 
-            for (int i = 0; i < count; i++) {
-                author = BOOK_LIBRARY.get(i).get(0);
-                title = BOOK_LIBRARY.get(i).get(1);
-                pageCount = Integer.parseInt(BOOK_LIBRARY.get(i).get(2));
-                bookList.add(new Book.Builder()
+            while (bookSet.size() < count) {
+                List<String> randomBook =  BOOK_LIBRARY.get(
+                        generateRandomInRangeNotIncludeEnd(0, BOOK_LIBRARY.size()));
+                author = randomBook.get(0);
+                title = randomBook.get(1);
+                pageCount = Integer.parseInt(randomBook.get(2));
+                bookSet.add(new Book.Builder()
                         .author(author)
                         .title(title)
                         .pageCount(pageCount)
                         .build());
-                // if param 'count' will be more than size 'bookLibrary'
-                if (i == sizeBookLibrary - 1) {
-                    i = -1;
-                    count -= sizeBookLibrary;
-                }
             }
+            bookList = new ArrayList<>(bookSet);
         } else {
-            bookList = new ArrayList(0);
+            bookList = new ArrayList<>(0);
         }
         return bookList;
     }
+
     /***
      * Create and fill rootVegetable list
      * If param method less or equal zero then method return empty method.
