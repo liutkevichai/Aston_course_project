@@ -110,11 +110,11 @@ public final class Book implements Comparable<Book>, HasNumField<Book>, Serializ
      */
     @Override
     public int compareTo(Book o) {
-        int authorComparison = this.author.compareTo(o.author);
+        int authorComparison = String.CASE_INSENSITIVE_ORDER.compare(this.author, o.author);
         if (authorComparison != 0) {
             return authorComparison;
         }
-        int titleComparison = this.title.compareTo(o.title);
+        int titleComparison = String.CASE_INSENSITIVE_ORDER.compare(this.title, o.title);
         if (titleComparison != 0) {
             return titleComparison;
         }
@@ -161,8 +161,8 @@ public final class Book implements Comparable<Book>, HasNumField<Book>, Serializ
             return false;
         Book other = (Book) obj;
         return pageCount == other.pageCount
-                && Objects.equals(author, other.author)
-                && Objects.equals(title, other.title);
+                && author.equalsIgnoreCase(other.author)
+                && title.equalsIgnoreCase(other.title);
     }
 
     /**

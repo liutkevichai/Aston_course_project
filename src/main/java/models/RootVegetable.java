@@ -110,7 +110,8 @@ public final class RootVegetable implements Comparable<RootVegetable>, HasNumFie
      */
     @Override
     public int compareTo(RootVegetable o) {
-        int typeComparison = this.type.compareTo(o.type);
+
+        int typeComparison = String.CASE_INSENSITIVE_ORDER.compare(this.type, o.type);
         if (typeComparison != 0) {
             return typeComparison;
         }
@@ -118,7 +119,7 @@ public final class RootVegetable implements Comparable<RootVegetable>, HasNumFie
         if (weightComparison != 0) {
             return weightComparison;
         }
-        return this.color.compareTo(o.color);
+        return String.CASE_INSENSITIVE_ORDER.compare(this.color, o.color);
     }
 
     /**
@@ -162,8 +163,8 @@ public final class RootVegetable implements Comparable<RootVegetable>, HasNumFie
             return false;
         RootVegetable other = (RootVegetable) obj;
         return weight == other.weight
-                && Objects.equals(type, other.type)
-                && Objects.equals(color, other.color);
+                && type.equalsIgnoreCase(other.type)
+                && color.equalsIgnoreCase(other.color);
     }
 
     /**

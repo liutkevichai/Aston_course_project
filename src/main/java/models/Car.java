@@ -110,7 +110,7 @@ public final class Car implements Comparable<Car>, HasNumField<Car>, Serializabl
      */
     @Override
     public int compareTo(Car o) {
-        int modelComparison = this.model.compareTo(o.model);
+        int modelComparison = String.CASE_INSENSITIVE_ORDER.compare(this.model, o.model);
         if (modelComparison != 0) {
             return modelComparison;
         }
@@ -160,7 +160,9 @@ public final class Car implements Comparable<Car>, HasNumField<Car>, Serializabl
         if (obj == null || getClass() != obj.getClass())
             return false;
         Car other = (Car) obj;
-        return year == other.year && power == other.power && Objects.equals(model, other.model);
+        return year == other.year
+                && power == other.power
+                && model.equalsIgnoreCase(other.model);
     }
 
     /**
