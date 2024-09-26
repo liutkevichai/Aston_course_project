@@ -1,6 +1,7 @@
 package fillstrategy.impl;
 
 import fillstrategy.FillingList;
+import fillstrategy.utils.ReadPropertyFile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FillingListFromFile implements FillingList {
-    private static final int COUNT_OBJECT = 1000;
-    private static final String FILE_NAME = "src/main/resources/sourceObject.rat";
+    private static final int COUNT_OBJECT = new ReadPropertyFile().getAmountObjectInFile();
+    private static final String FILE_NAME = new ReadPropertyFile().getFilePath();
     private static final String EXCEED_AMOUNT_MES = "Chosen amount of elements exceeds " +
             "the amount of elements in the file. MAX = " + COUNT_OBJECT;
 

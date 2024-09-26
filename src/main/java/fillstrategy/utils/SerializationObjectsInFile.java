@@ -18,11 +18,11 @@ public class SerializationObjectsInFile {
     /**
      * Path to source file
      */
-    private static final String FILE_NAME = "src/main/resources/sourceObject.rat";
+    private static final String FILE_NAME = new ReadPropertyFile().getFilePath();
     /***
      * Amount objects that will serialize in file
      */
-    private static final int COUNT_OBJECT = 1000;
+    private static final int COUNT_OBJECT = new ReadPropertyFile().getAmountObjectInFile();
 
     /***
      * Contain classes from folder 'model'

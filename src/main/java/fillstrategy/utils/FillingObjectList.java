@@ -108,11 +108,6 @@ public class FillingObjectList {
                         .title(title)
                         .pageCount(pageCount)
                         .build());
-                // if param 'count' will be more than size 'bookLibrary'
-                if (i == sizeBookLibrary - 1) {
-                    i = -1;
-                    count -= sizeBookLibrary;
-                }
             }
         } else {
             bookList = new ArrayList<Book>(0);
