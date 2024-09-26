@@ -25,7 +25,7 @@ public class FillingListFromConsole implements FillingList {
         List list = null;
         BuilderInvoker invoker = new BuilderInvoker<>();
         if (count > 0) {
-            list = new ArrayList();
+            list = new ArrayList<T>();
             for (int i = 0; i < count; i++) {
                 list.add(invoker.setupWithInput((Class) typeClass));
             }

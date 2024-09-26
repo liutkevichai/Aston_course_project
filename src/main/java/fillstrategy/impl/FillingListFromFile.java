@@ -1,10 +1,6 @@
 package fillstrategy.impl;
 
-import model.Book;
-import model.Car;
-import model.RootVegetable;
-import strategy.FillingList;
-import strategy.utils.DeserializationObjectsFromFile;
+import fillstrategy.FillingList;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,31 +14,27 @@ public class FillingListFromFile implements FillingList {
 
     @Override
     public <T> List fillList(T typeClass, int count) {
+
         List list = null;
-        if (count > COUNT_OBJECT){
+        if (count > COUNT_OBJECT || count <= 0){
             return list;
         }
-        if (typeClass.equals(Car.class)) {
-            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
-                list = new ArrayList<>();
-                while(count > 0){
-                    Object o = inputStream.readObject();
-                    if (o instanceof Car) {
-                        list.add(o);
-                        count--;
-                    }
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+            list = new ArrayList<T>();
+            for (int i = 0; i < COUNT_OBJECT && count > 0; i++) {
+                Object o = inputStream.readObject();
+                if (typeClass.equals(o.getClass())) {
+                    list.add(o);
+                    count--;
                 }
-                System.out.println(list);
-            } catch (ClassNotFoundException | IOException e) {
-                throw new RuntimeException(e);
             }
-        } else if (typeClass.equals(Book.class)) {
-
-        } else if (typeClass.equals(RootVegetable.class)) {
-
+            for (int i = 0; i < count; i++) {
+                //TODO: add empty Object i list
+//                list.add(typeClass
+            }
+        } catch (ClassNotFoundException | IOException e) {
+            throw new RuntimeException(e);
         }
         return list;
     }
-
-
 }

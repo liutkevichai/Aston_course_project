@@ -3,6 +3,7 @@ import algorithms.BinarySearch;
 import algorithms.Sorting;
 
 import fillstrategy.impl.FillingListFromFile;
+import fillstrategy.utils.SerializationObjectsInFile;
 import input.UserChoiceSource;
 import input.UserChoiceHandler;
 
@@ -37,6 +38,7 @@ public class Main {
             3, new FillingListRandomValue());
 
     public static void main(String[] args) {
+        new SerializationObjectsInFile().serializeObjectsInFile();
         while (true) {
             UserChoiceHandler input = new UserChoiceHandler(new UserChoiceSource());
             int classChoice = input.getClassChoice();
