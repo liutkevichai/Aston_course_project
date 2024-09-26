@@ -11,13 +11,18 @@ import java.util.List;
 public class FillingListFromFile implements FillingList {
     private static final int COUNT_OBJECT = 1000;
     private static final String FILE_NAME = "src/main/resources/sourceObject.rat";
+    private static final String EXCEED_AMOUNT_MES = "Chosen amount of elements exceeds " +
+            "the amount of elements in the file. MAX = " + COUNT_OBJECT;
 
     @Override
-    public <T> List fillList(T typeClass, int count) {
+    public <T> List fillList(T typeClass, int count) throws IllegalArgumentException{
 
         List list = null;
-        if (count > COUNT_OBJECT || count <= 0){
+        if (count <= 0){
             return list;
+        }
+        if (count > COUNT_OBJECT) {
+            throw new IllegalArgumentException(EXCEED_AMOUNT_MES);
         }
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
             list = new ArrayList<T>();
@@ -27,10 +32,6 @@ public class FillingListFromFile implements FillingList {
                     list.add(o);
                     count--;
                 }
-            }
-            for (int i = 0; i < count; i++) {
-                //TODO: add empty Object i list
-//                list.add(typeClass
             }
         } catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
