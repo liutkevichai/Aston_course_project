@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/***
+ * Main class that ran program
+ */
 public class Main {
     /**
      * A map containing strategies for filling the list.
@@ -39,7 +42,7 @@ public class Main {
             3, new FillingListRandomValue());
 
     public static void main(String[] args) {
-        new SerializationObjectsInFile().serializeObjectsInFile();
+        new SerializationObjectsInFile().serializeObjectsInFile();      //serialize objects in file
         while (true) {
             UserChoiceHandler input = new UserChoiceHandler(new UserChoiceSource());
             int classChoice = input.getClassChoice();
