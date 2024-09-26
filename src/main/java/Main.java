@@ -18,6 +18,7 @@ import fillstrategy.impl.FillingListFromConsole;
 import fillstrategy.impl.FillingListRandomValue;
 import input.BuilderInvoker;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -86,7 +87,14 @@ public class Main {
 
         ContextFillingList cfl = new ContextFillingList();
         cfl.setFillingList(fillingStrategies.get(fillingChoice));
-        List<T> list = cfl.execute(typeClass, amount);
+
+        List<T> list = new ArrayList<>();
+        try {
+            list = cfl.execute(typeClass, amount);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 1;
+        }
 
         System.out.println(typeClass.getSimpleName() + " list: " + list + "\n");
 
