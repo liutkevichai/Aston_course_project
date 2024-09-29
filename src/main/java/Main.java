@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /***
- * Main class that ran program
+ * Main class that runs the program
  */
 public class Main {
     /**
@@ -42,7 +42,7 @@ public class Main {
             3, new FillingListRandomValue());
 
     public static void main(String[] args) {
-        new SerializationObjectsInFile().serializeObjectsInFile();      //serialize objects in file
+        new SerializationObjectsInFile().serializeObjectsInFile();   //serializes a bunch of random objects to a file
         while (true) {
             UserChoiceHandler input = new UserChoiceHandler(new UserChoiceSource());
             int classChoice = input.getClassChoice();
